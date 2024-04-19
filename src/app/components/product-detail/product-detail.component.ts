@@ -27,16 +27,9 @@ export class ProductDetailComponent {
         this.apiRequest.getAll()
         .pipe(map((data: Product[])=> data[id] ))
         .subscribe(res => this.productDetail = res)
-        console.log(this.productDetail)
       }
     )
   }
-  
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-  }
-
   ratingStar(upperTo:number) : string{
     if(this.productDetail.Reviews.rating >= upperTo)
       return 'filled';
