@@ -1,9 +1,39 @@
 
-<main class="flex flex-col py-8 px-24">
-    <ul class="grid xl:grid-cols-4 max-2xl:grid-cols-4 md:grid-cols-2 gap-2 sm:grid-cols-1">
+<main class="flex flex-col">
+    <header class="flex flex-row justify-between shadow-lg w-all px-28 py-4">
+        <svg width="44px" height="44px" viewBox="0 0 28 28"><path fill="currentColor" d="M23.959 2.104c1.213-.467 2.405.725 1.938 1.938L17.821 25.04c-.522 1.36-2.48 1.251-2.85-.157l-2.358-8.96a.75.75 0 0 0-.535-.534l-8.96-2.358c-1.408-.37-1.515-2.328-.156-2.85z"/></svg>
+        
+    </header>
+    <ul class="grid py-8 px-24 xl:grid-cols-4 md:grid-cols-2 gap-2 sm:grid-cols-1 grid-cols-1">
         @for (product of responseData; track $index) {
-            <product [product]="product" />
+            <product [product]="product" [index]="$index + (pageActive*24)" />
         }
     </ul>
+    <div class="flex justify-center py-8">
+        <ul class="flex flex-row w-max justify-center text-center items-center gap-4">
+            <svg  (click)="seePage((0))" class="hover:fill-current transition-colors cursor-pointer" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M11 17h6l-4 -5l4 -5h-6l-4 5z" />
+            </svg>
+            @for (page of [-2,-1,0,1,2,3,4,5,6,7]; track $index) {
+                @if ((page+pageActive) >= 0 && (page+pageActive).valueOf() <= 18 ) {
+                    @if ((page+pageActive) == pageActive) {
+                        <a (click)="seePage((page+pageActive))" 
+                        class="text-lg cursor-pointer text-blue-600 transition-colors" >
+                        <li>{{(page+pageActive)+1}}</li></a> 
+                    }
+                    @else {
+                        <a (click)="seePage((page+pageActive))" 
+                        class="text-lg cursor-pointer hover:text-blue-600 transition-colors" >
+                        <li>{{(page+pageActive)+1}}</li></a> 
+                    }
+                }
+            }
+            <svg (click)="seePage((18))" class="hover:fill-current transition-colors cursor-pointer" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M13 7h-6l4 5l-4 5h6l4 -5z" />
+              </svg>
+        </ul>
+    </div>
 </main>
 

@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../interface/Product';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'product',
@@ -11,4 +14,15 @@ import { Product } from '../../interface/Product';
 export class ProductComponent {
   @Input()
   public product?: Product;
+  @Input()
+  public index?: number;
+
+  constructor(private router: Router){
+
+  }
+
+  seeDetail(){
+    console.log('hello')
+    this.router.navigate(['/detail/' + this.index?.toString()])
+  }
 }
