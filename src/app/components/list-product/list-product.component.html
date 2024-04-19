@@ -1,1 +1,19 @@
-<p>list-product works!</p>
+
+<main class="flex flex-col py-8 px-24">
+    <ul class="grid xl:grid-cols-4 max-2xl:grid-cols-4 md:grid-cols-2 gap-2 sm:grid-cols-1">
+        @for (product of responseData; track $index) {
+            <li class="hover:bg-gray-500 hover:bg-opacity-35 rounded-lg cursor-pointer
+                    flex flex-col relative py-6 px-12 transition-colors gap-2">
+                <div class="relative w-min-max aspect-square">
+                    <img class="w-full aspect-square" src={{product.Image}} alt="">
+                    <img class="img2 absolute top-0 left-0 w-full aspect-square opacity-0 transition-opacity" src={{product.Image1}} alt="">
+                </div>
+                <h2 class="text-2xl font-bold">{{product.Name}}</h2>
+                <p class="text-sm">{{product.Description_title}}</p>
+                <p class="text-sm">{{product.Colors}}</p>
+
+            </li>
+        }
+    </ul>
+</main>
+

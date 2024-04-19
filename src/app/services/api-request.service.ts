@@ -1,8 +1,10 @@
 import { Injectable, Injector } from '@angular/core';
 
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Product } from '../interface/Product';
 import { HttpClient } from '@angular/common/http';
+import { kMaxLength } from 'buffer';
+import { MaxLengthValidator } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
