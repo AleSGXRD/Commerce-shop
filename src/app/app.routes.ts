@@ -5,5 +5,9 @@ export const routes: Routes = [
     {
         path: '',
         component: ListProductComponent
+    },
+    {
+        path: 'detail/:id',
+        component: ListProductComponent
     }
 ];

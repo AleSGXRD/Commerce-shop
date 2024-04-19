@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { ApiRequestService } from '../../services/api-request.service';
 import { Product } from '../../interface/Product';
-import { map, Observable } from 'rxjs';
+import { map } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { ProductComponent } from '../product/product.component';
 
 @Component({
   selector: 'app-list-product',
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [ProductComponent],
   templateUrl: './list-product.component.html',
   styleUrl: './list-product.component.css'
 })
