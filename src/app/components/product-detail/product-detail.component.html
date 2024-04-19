@@ -1,6 +1,6 @@
 
 <main class="md:px-28 md:py-16 px-12 py-8 grid md:grid-cols-1 lg:grid-cols-2 grid-cols-1 gap-8" >  
-    <img class="w-full rounded-lg" [src]='productDetail.Image' alt="">
+    <img class="w-full rounded-lg" [style.view-transition-name]="'transition-image-'+index" [src]='productDetail.Image' alt="">
     <div class="flex flex-col gap-2">
         <header>
             <div class="flex flex-row justify-between">

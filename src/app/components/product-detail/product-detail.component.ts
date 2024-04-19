@@ -15,6 +15,7 @@ import { CommonModule, CurrencyPipe, UpperCasePipe } from '@angular/common';
 export class ProductDetailComponent {
 
   public productDetail! : Product;
+  public index : number =0;
 
   constructor(private route:ActivatedRoute,
     private apiRequest:ApiRequestService
@@ -23,6 +24,7 @@ export class ProductDetailComponent {
     this.route.params.subscribe(
       params =>{
         const id = params['id'];
+        this.index=id;
 
         this.apiRequest.getAll()
         .pipe(map((data: Product[])=> data[id] ))
