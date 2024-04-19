@@ -31,6 +31,7 @@ export class ProductDetailComponent {
         .subscribe(res => this.productDetail = res)
       }
     )
+    window.scrollTo(0, 0);
   }
   ratingStar(upperTo:number) : string{
     if(this.productDetail.Reviews.rating >= upperTo)
